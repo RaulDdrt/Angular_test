@@ -1,0 +1,26 @@
+header{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid var(--othercolor);
+    color: var(--othercolor);
+    background-color: var(--maincolor);
+    width: 100%;
+    height: 80px;
+}
+
+header nav{
+
+    /* border: 4px solid blue; */
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav a{
+
+    color: var(--othercolor);
+    text-decoration: none;
+}
