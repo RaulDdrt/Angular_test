@@ -1,1 +1,44 @@
-<p>profile works!</p>
+<div>
+    <aside class="as1">
+        <img src="{{fotoperfil}}">
+
+        <h1> {{user.name}} {{user.last_name}}</h1>
+        
+        <article class="art1">
+            
+            <div class="div1">
+                <p>Nombre</p>
+                <p>Apellido 
+                </p>
+                <p>Correo
+                </p>
+            </div>
+
+            <div class="div2">
+                
+                <p class="p1"> {{user.name}} </p>
+                <p class="p1"> {{user.last_name}} </p>
+                <p class="p1"> {{user.email}} </p>
+        
+            </div>
+
+
+        </article>
+
+    </aside>
+   
+    <aside class="as2">
+
+        <h1>Pagina de perfil</h1>
+
+        <form action="">
+            <input #nombre type="text" placeholder="Nombre">
+            <input #apellido type="text" placeholder="Apellido">
+            <input #correo type="email" placeholder="Correo">
+            <input #url type="url" placeholder="URL">
+            <button type ="reset" (click)="editar(nombre.value,apellido.value,correo.value,url.value)">Modificar</button>
+        </form>
+
+    </aside>
+
+</div>

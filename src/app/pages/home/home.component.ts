@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  public fotoportada : string;
+  constructor(){
+    this.fotoportada = "https://freepngimg.com/thumb/book/6-books-png-image-with-transparency-background.png"
+  }
+
 }

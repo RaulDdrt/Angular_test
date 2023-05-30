@@ -1,0 +1,100 @@
+div{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1920px;
+    height: 829px;
+
+}
+
+.as1{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 600px;
+    border: 10px double var(--maincolor);
+    margin: 10px
+
+}
+
+.as2{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 600px;
+    border: 10px double var(--maincolor);
+    margin: 10px;
+    justify-content: space-around;
+
+}
+
+img{
+
+    width: 225px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 10px;
+
+}
+
+.art1{
+
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 350px;
+    margin-top: 20px;
+
+}
+
+.div1{
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+}
+
+.div2{
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+}
+
+.p1{
+
+    width: 90%;
+    text-align: center;
+}
+
+form{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60%;
+
+}
+
+button{
+
+    background-color: var(--anothercolor);
+    color: aliceblue;
+    width: 120px;
+    border-radius: 8px;
+    border: none;
+}
+
+h1{
+
+    color: var(--anothercolor);
+}
