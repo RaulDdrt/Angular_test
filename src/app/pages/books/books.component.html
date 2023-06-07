@@ -1,11 +1,52 @@
-<div>
+<div class="main-container" *ngIf="books.length > 0; else noHay">
+
+    <div class="card" *ngFor="let book of books; let even = even" [ngClass]="{'even-card': even, 'odd-card': !even}">
+
+      <img [src]="book.photo" alt="sin imagen">
+
+        <div class="card-body">
+
+        <h5 class="card-title">{{book.title}}</h5>
+
+        <h6 class="card-subtitle mb-2">{{book.id_book | newpipe}}</h6>
+        <h6 class="card-subtitle mb-2">{{book.id_user}}</h6>
+        <h6 class="card-subtitle mb-2">{{book.type}}</h6>
+        <h6 class="card-subtitle mb-2">{{book.author}}</h6>
+        <h6 class="card-subtitle mb-2">{{book.price}}</h6>
 
 
-    <ng-container *ngFor = "let book of books">
+      <button type="button">Borrar libro</button>
+        
 
-        <div>{{book.title}}</div>
 
-    </ng-container>
+      </div>
+
+    </div>
 
 </div>
+  
+<ng-template #noHay>
+    <div class="main-container">
+      <h2 class="text-danger">No hay libros</h2>
+    </div>
+</ng-template>
 
+
+<aside class="aside1">
+
+<form class="newcard" action="">
+    <h1>Añadir nuevo libro</h1>
+    <div class="form1">
+        <input type="text" placeholder="Título" #title>
+        <input type="text" placeholder="Estilo de tapa" #type>
+        <input type="text" placeholder="Autor" #author>
+        <input type="text" placeholder="Precio" #price>
+        <input type="url" placeholder="Foto" #photo>
+        <input type="text" placeholder="Código de libro" #id>
+        <input type="text" placeholder="Código de Usuario" #id2>
+
+        <button type="button" (click)="nuevoLibro(title.value, type.value, author.value, price.value, photo.value, id.value, id2.value)">Enviar</button>
+    </div>
+</form>
+
+</aside>
