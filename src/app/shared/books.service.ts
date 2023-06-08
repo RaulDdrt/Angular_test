@@ -59,7 +59,7 @@ export class BooksService {
   }
 
   deleteThis(id_book: number): boolean {
-    const index = this.books.findIndex(book => book.id_book === id_book);
+    let index = this.books.findIndex(book => book.id_book === id_book);
     if (index !== -1) {
       this.books.splice(index, 1);
       return true;

@@ -9,6 +9,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { BooksComponent } from './pages/books/books.component';
 import { AddbookComponent } from './pages/addbook/addbook.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormLoginComponent } from './component/form-login/form-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
@@ -17,7 +20,8 @@ const routes: Routes = [
   {path: "profile" , component: ProfileComponent},
   {path: "books" , component: BooksComponent},
   {path: "addbook" , component: AddbookComponent},
-  {path: "updatebook" , component: UpdateBookComponent}
+  {path: "updatebook" , component: UpdateBookComponent},
+  {path: "login" , component: LoginComponent}
 
 
 ];

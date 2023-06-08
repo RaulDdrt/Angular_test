@@ -21,14 +21,14 @@ export class BooksComponent {
     if (this.busqueda.trim() === "") {
       this.filteredBooks = this.libros;
     } else {
-      const id_libro = Number(this.busqueda);
-      const libroEncontrado = id_libro ? this.bookService.getOne(id_libro) : undefined;
+      let id_libro = Number(this.busqueda);
+      let libroEncontrado = id_libro ? this.bookService.getOne(id_libro) : undefined;
       this.filteredBooks = libroEncontrado ? [libroEncontrado] : [];
     }
   }
 
   borrarLibro(libro: number) {
-    const deleted = this.bookService.deleteThis(libro);
+    let deleted = this.bookService.deleteThis(libro);
     if (deleted) {
       this.libros = this.bookService.getAll();
       this.filterBooks();

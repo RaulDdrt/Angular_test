@@ -13,7 +13,7 @@ export class AddbookComponent {
 
   nuevoLibro(title:string,type:string,author:string,price:number,photo:string,id:number,id2:number){
 
-    const newBook = {
+    let newBook = {
       title,
       type,
       author,
