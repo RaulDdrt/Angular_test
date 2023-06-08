@@ -24,3 +24,10 @@ header nav a{
     color: var(--othercolor);
     text-decoration: none;
 }
+
+img{
+
+    width: 125px;
+    height: 125px;
+
+}

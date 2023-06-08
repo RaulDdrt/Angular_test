@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
@@ -22,17 +22,7 @@ export class UpdateBookComponent {
 
   }
 
-  // updateBook(): void {
-  //   let success = this.bookService.editBook(this.book);
-  //   if (success) {
-  //     console.log("Todo bien");
-  //   } else {
-  //     console.log("Todo mal");
-  //   }
-  // }
-
-
-updateBook(title:string,type:string,author:string,price:number,photo:string,id:number,id2:number){
+  updateBook(title:string,type:string,author:string,price:number,photo:string,id:number,id2:number){
 
   const newBook = {
     title,

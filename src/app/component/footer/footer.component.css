@@ -12,3 +12,19 @@ footer{
     height: 50px;
     
 }
+
+div{
+
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+img{
+
+    border: 4 px solid red;
+    width: 25px;
+    height: 25px;
+
+}

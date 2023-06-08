@@ -36,9 +36,11 @@ div{
 img{
 
     width: 225px;
-    height: 200px;
-    border-radius: 50%;
+    height: 225px;
+    border-radius: 55%;
     margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid black
 
 }
 
