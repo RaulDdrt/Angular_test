@@ -1,20 +1,28 @@
-<div class="main-container" *ngIf="books.length > 0; else noHay">
+<div class="buscador">
 
-    <div class="card" *ngFor="let book of books; let even = even" [ngClass]="{'even-card': even, 'odd-card': !even}">
+  <input type="text" placeholder="Buscar libro..." [(ngModel)]="busqueda">
 
-      <app-cards [book]="book" [even]="even" (libro)="borrarLibro($event)"></app-cards>
-
-    
-    </div>
+  <button (click)="filterBooks()">Buscar</button>
 
 </div>
-  
-<ng-template #noHay>
-    <div class="main-container">
-      <h2 class="text-danger">No hay libros</h2>
-    </div>
-</ng-template>
 
+<div class="main-container" *ngIf="filteredBooks.length > 0; else noHay">
+
+  <div class="card" *ngFor="let book of filteredBooks">
+
+    <app-cards [book]="book" (libro)="borrarLibro($event)"></app-cards>
+
+  </div>
+
+</div>
+
+<ng-template #noHay>
+
+  <div class="main-container">
+    <h2 class="text-danger">No hay libros</h2>
+  </div>
+
+</ng-template>
 
 <!-- <aside class="aside1">
 

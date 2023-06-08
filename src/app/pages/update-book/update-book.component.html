@@ -1,16 +1,16 @@
 <aside class="aside1">
 
-    <form class="newcard" (submit)="nuevoLibro(title.value, type.value, author.value, +price.value, photo.value, +id.value, +id2.value)">
+    <form class="newcard" (submit)="updateBook(title.value, type.value, author.value, +price.value, photo.value, +id.value, +id2.value)">
 
       <h1>Añadir nuevo libro</h1>
 
       <div class="form1">
+        <input type="number" placeholder="ID del libro a editar" #id>
         <input type="text" placeholder="Título" #title>
         <input type="text" placeholder="Estilo de tapa" #type>
         <input type="text" placeholder="Autor" #author>
         <input type="number" placeholder="Precio" #price>
         <input type="url" placeholder="Foto" #photo>
-        <input type="number" placeholder="Código de libro" #id>
         <input type="number" placeholder="Código de Usuario" #id2>
         <button type="submit">Enviar</button>
       </div>

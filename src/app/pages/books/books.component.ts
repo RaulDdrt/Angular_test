@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
   selector: 'app-books',
@@ -7,28 +8,30 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent {
-  public books: Book[];
+  public libros: Book[];
+  public busqueda: string = "";
+  public filteredBooks: Book[];
 
-  constructor() {
-    this.books = [
-      new Book(20, 1, "Dragonlance: El Retorno de los Dragones", "Tapa dura", "M. Weiss y T. Hitman", 20, "https://m.media-amazon.com/images/I/517MG545q8L.jpg"),
-      new Book(3, 2, "Uzumaki", "Tapa dura", "Junji Ito", 30, "https://m.media-amazon.com/images/I/81CeGGwz+BL._AC_UF1000,1000_QL80_.jpg"),
-      new Book(2, 3, "It", "Tapa blanda", "Stephen King", 20, "https://imagessl3.casadellibro.com/a/l/t5/93/9788497593793.jpg"),
-    ];
+  constructor(public bookService: BooksService) {
+    this.libros = this.bookService.getAll();
+    this.filteredBooks = this.libros;
   }
 
-  
-  nuevoLibro(title: string, type: string, author: string, price: string, photo: string, id: string, id2: string) {
-
-    const nuevoLibro = new Book(parseInt(id), parseInt(id2), title, type, author, parseFloat(price), photo);
-    this.books.push(nuevoLibro);
-
+  filterBooks() {
+    if (this.busqueda.trim() === "") {
+      this.filteredBooks = this.libros;
+    } else {
+      const id_libro = Number(this.busqueda);
+      const libroEncontrado = id_libro ? this.bookService.getOne(id_libro) : undefined;
+      this.filteredBooks = libroEncontrado ? [libroEncontrado] : [];
+    }
   }
 
-  borrarLibro(libro:number){
-
-    this.books = this.books.filter (book => book.id_book != libro)
-
+  borrarLibro(libro: number) {
+    const deleted = this.bookService.deleteThis(libro);
+    if (deleted) {
+      this.libros = this.bookService.getAll();
+      this.filterBooks();
+    }
   }
-
 }

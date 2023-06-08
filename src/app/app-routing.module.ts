@@ -8,6 +8,7 @@ import { FormRegisterComponent } from './component/form-register/form-register.c
 import { ProfileComponent } from './pages/profile/profile.component';
 import { BooksComponent } from './pages/books/books.component';
 import { AddbookComponent } from './pages/addbook/addbook.component';
+import { UpdateBookComponent } from './pages/update-book/update-book.component';
 
 const routes: Routes = [
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: "register" , component: RegisterComponent},
   {path: "profile" , component: ProfileComponent},
   {path: "books" , component: BooksComponent},
-  {path: "addbook" , component: AddbookComponent}
+  {path: "addbook" , component: AddbookComponent},
+  {path: "updatebook" , component: UpdateBookComponent}
 
 
 ];
