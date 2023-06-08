@@ -1,0 +1,26 @@
+<div class="main-container">
+
+    <div class="card">
+
+       <button (click)="borrarLibro()">X</button>
+      
+        <img [src]="book.photo" alt="sin imagen">
+
+        <div class="card-body">
+
+        <h5 class="card-title">{{book.title}}</h5>
+
+        <h6 class="card-subtitle mb-2">{{book.id_book | newpipe}}</h6>
+        <h6 class="card-subtitle mb-2">{{book.id_user}}</h6>
+        <h6 class="card-subtitle mb-2">{{book.type}}</h6>
+        <h6 class="card-subtitle mb-2">{{book.author}}</h6>
+        <h6 class="card-subtitle mb-2">{{book.price}}</h6>
+
+
+      <button type="button">Comprar</button>
+        
+
+
+      </div>
+
+    </div>

@@ -2,25 +2,9 @@
 
     <div class="card" *ngFor="let book of books; let even = even" [ngClass]="{'even-card': even, 'odd-card': !even}">
 
-      <img [src]="book.photo" alt="sin imagen">
+      <app-cards [book]="book" [even]="even" (libro)="borrarLibro($event)"></app-cards>
 
-        <div class="card-body">
-
-        <h5 class="card-title">{{book.title}}</h5>
-
-        <h6 class="card-subtitle mb-2">{{book.id_book | newpipe}}</h6>
-        <h6 class="card-subtitle mb-2">{{book.id_user}}</h6>
-        <h6 class="card-subtitle mb-2">{{book.type}}</h6>
-        <h6 class="card-subtitle mb-2">{{book.author}}</h6>
-        <h6 class="card-subtitle mb-2">{{book.price}}</h6>
-
-
-      <button type="button">Comprar</button>
-        
-
-
-      </div>
-
+    
     </div>
 
 </div>
