@@ -12,6 +12,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { BooksComponent } from './pages/books/books.component';
 import { NewpipePipe } from './pipes/newpipe.pipe';
 import { CardsComponent } from './component/cards/cards.component';
+import { AddbookComponent } from './pages/addbook/addbook.component';
 
 
 
@@ -30,6 +31,7 @@ import { CardsComponent } from './component/cards/cards.component';
             BooksComponent,
             NewpipePipe,
             CardsComponent,
+            AddbookComponent,
             
   ],
   imports: [
