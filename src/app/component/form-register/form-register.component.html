@@ -1,24 +1,30 @@
 <div class="container">
     <h1>Registrate</h1>
-    <form>
-      <label for="nombre">Nombre y apellidos:</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Aqui tu nombre" required>
+    <form [formGroup]="registrarse" (ngSubmit)="onSubmit(registrarse)">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre"  placeholder="Aqui tu nombre" [ngClass]="{'is-invalid': (registrarse.get('nombre')?.dirty || registrarse.get('nombre')?.touched) && registrarse.get('nombre')?.invalid}">
+      <div *ngIf="registrarse.get('nombre')?.invalid" class="invalid-feedback">Nombre necesario</div>
 
       <label for="nombre">Apellidos:</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Aqui tus apellidos" required>
-      
+      <input type="text" id="apellidos" formControlName="apellidos"  placeholder="Aqui tus apellidos" [ngClass]="{'is-invalid': (registrarse.get('apellidos')?.dirty || registrarse.get('apellidos')?.touched) && registrarse.get('apellidos')?.invalid}">
+      <div *ngIf="registrarse.get('apellidos')?.invalid" class="invalid-feedback">Apellidos necesarios</div>
+
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Aqui tu email" required>
+      <input type="email" id="email" formControlName="correo"  placeholder="Aqui tu email" [ngClass]="{'is-invalid': (registrarse.get('correo')?.dirty || registrarse.get('correo')?.touched) && registrarse.get('correo')?.invalid}">
+      <div *ngIf="registrarse.get('correo')?.invalid" class="invalid-feedback">Email necesario</div>
 
       <label for="email">URL:</label>
-      <input type="email" id="email" name="email" placeholder="Aqui tu URL" required>
+      <input type="email" id="url" formControlName="url"  placeholder="Aqui tu URL" [ngClass]="{'is-invalid': (registrarse.get('url')?.dirty || registrarse.get('url')?.touched) && registrarse.get('url')?.invalid}">
+      <div *ngIf="registrarse.get('url')?.invalid" class="invalid-feedback">URL necesaria</div>
 
       <label for="email">Contraseña:</label>
-      <input type="password" id="email" name="email" placeholder="Aqui tu contraseña" required>
-      
+      <input type="password" id="passw" formControlName="pword"  placeholder="Aqui tu contraseña" [ngClass]="{'is-invalid': (registrarse.get('passw')?.dirty || registrarse.get('passw')?.touched) && registrarse.get('passw')?.invalid}">
+      <div *ngIf="registrarse.get('passw')?.invalid" class="invalid-feedback">Contraseña necesaria</div>
+
       <label for="contrasena">Repetir Contraseña:</label>
-      <input type="password" id="contrasena" name="contrasena" placeholder="Aqui tu contraseña" required>
-      
-      <button type="submit">Registrarse</button>
+      <input type="password" id="passw2" formControlName="pword2" placeholder="Aqui tu contraseña" [ngClass]="{'is-invalid': (registrarse.get('passw2')?.dirty || registrarse.get('passw2')?.touched) && registrarse.get('passw2')?.invalid}">
+      <div *ngIf="registrarse.get('passw2')?.invalid" class="invalid-feedback">Contraseña necesario</div>
+
+      <button type="submit" [disabled]="registrarse.invalid">Registrarse</button>
     </form>
 </div>
