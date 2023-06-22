@@ -8,30 +8,40 @@ import { BooksService } from 'src/app/shared/books.service';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent {
-  public libros: Book[];
+  public libros: Book[]=[];
   public busqueda: string = "";
   public filteredBooks: Book[];
 
-  constructor(public bookService: BooksService) {
-    this.libros = this.bookService.getAll();
-    this.filteredBooks = this.libros;
+  constructor(public booksService: BooksService){
+    this.booksService.getAll().subscribe((data: Book[]) => {
+      
+      this.libros = data;
+
+    })
   }
 
-  filterBooks() {
+
+filterBooks() {
     if (this.busqueda.trim() === "") {
       this.filteredBooks = this.libros;
     } else {
       let id_libro = Number(this.busqueda);
-      let libroEncontrado = id_libro ? this.bookService.getOne(id_libro) : undefined;
-      this.filteredBooks = libroEncontrado ? [libroEncontrado] : [];
+      if (id_libro) {
+        this.booksService.getAll().subscribe((libroEncontrado: Book) => {
+          this.filteredBooks = libroEncontrado ? [libroEncontrado] : [];
+        });
+      } else {
+        this.filteredBooks = [];
+      }
     }
   }
 
-  borrarLibro(libro: number) {
-    let deleted = this.bookService.deleteThis(libro);
-    if (deleted) {
-      this.libros = this.bookService.getAll();
-      this.filterBooks();
-    }
+borrarLibro(libro: number) {
+    this.booksService.deleteBook(libro).subscribe(() => {
+      this.booksService.getAll().subscribe((data: Book[]) => {
+        this.libros = data;
+        this.filterBooks();
+      });
+    });
   }
 }

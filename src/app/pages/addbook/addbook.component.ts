@@ -10,10 +10,10 @@ import { BooksService } from 'src/app/shared/books.service';
 export class AddbookComponent {
 
   constructor(private booksService : BooksService){}
-
-  nuevoLibro(title:string,type:string,author:string,price:number,photo:string,id:number,id2:number){
-
-    let newBook = {
+  
+nuevoLibro(title: string, type: string, author: string, price: number, photo: string, id: number, id2: number) {
+    
+    let newBook: Book = {
       title,
       type,
       author,
@@ -21,11 +21,9 @@ export class AddbookComponent {
       photo,
       id_book: id,
       id_user: id2
-    }
-
-    this.booksService.addBook(newBook);
-
+    };
+  
+    this.booksService.postBook(newBook).subscribe(() => {
+    });
   }
-
-
 }

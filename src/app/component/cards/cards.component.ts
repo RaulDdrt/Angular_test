@@ -14,8 +14,8 @@ export class CardComponent {
 
   constructor(private booksService: BooksService) { }
 
-  borrarLibro() {
-    const deleted = this.booksService.deleteThis(this.book.id_book);
+borrarLibro() {
+    const deleted = this.booksService.deleteBook(this.book.id_book);
     if (deleted) {
       this.libro.emit(this.book.id_book);
     }
