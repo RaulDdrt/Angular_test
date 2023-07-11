@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Registrate</h1>
-    <form [formGroup]="registrarse" (ngSubmit)="onSubmit(registrarse)">
+    <form [formGroup]="registrarse" (ngSubmit)="onSubmit()">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" formControlName="nombre"  placeholder="Aqui tu nombre" [ngClass]="{'is-invalid': (registrarse.get('nombre')?.dirty || registrarse.get('nombre')?.touched) && registrarse.get('nombre')?.invalid}">
       <div *ngIf="registrarse.get('nombre')?.invalid" class="invalid-feedback">Nombre necesario</div>
@@ -18,11 +18,11 @@
       <div *ngIf="registrarse.get('url')?.invalid" class="invalid-feedback">URL necesaria</div>
 
       <label for="email">Contraseña:</label>
-      <input type="password" id="passw" formControlName="pword"  placeholder="Aqui tu contraseña" [ngClass]="{'is-invalid': (registrarse.get('passw')?.dirty || registrarse.get('passw')?.touched) && registrarse.get('passw')?.invalid}">
+      <input type="password" id="passw" formControlName="passw"  placeholder="Aqui tu contraseña" [ngClass]="{'is-invalid': (registrarse.get('passw')?.dirty || registrarse.get('passw')?.touched) && registrarse.get('passw')?.invalid}">
       <div *ngIf="registrarse.get('passw')?.invalid" class="invalid-feedback">Contraseña necesaria</div>
 
       <label for="contrasena">Repetir Contraseña:</label>
-      <input type="password" id="passw2" formControlName="pword2" placeholder="Aqui tu contraseña" [ngClass]="{'is-invalid': (registrarse.get('passw2')?.dirty || registrarse.get('passw2')?.touched) && registrarse.get('passw2')?.invalid}">
+      <input type="password" id="passw2" formControlName="passw2" placeholder="Aqui tu contraseña" [ngClass]="{'is-invalid': (registrarse.get('passw2')?.dirty || registrarse.get('passw2')?.touched) && registrarse.get('passw2')?.invalid}">
       <div *ngIf="registrarse.get('passw2')?.invalid" class="invalid-feedback">Contraseña necesario</div>
 
       <button type="submit" [disabled]="registrarse.invalid">Registrarse</button>

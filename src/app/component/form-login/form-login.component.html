@@ -2,14 +2,14 @@
 
   <h1>LogIn</h1>
   
-  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="container">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()" class="container">
 
     <input type="email" email placeholder="Email" name="correo" #correoId="ngModel" [(ngModel)]="correo" [ngClass]="{'is-invalid': (correoId.dirty || correoId.touched) && correoId.invalid}" required>
     <div *ngIf="(correoId.dirty || correoId.touched) && correoId.invalid" class="invalid-feedback">
       <p *ngIf="correoId.errors?.['required']">El correo es obligatorio</p>
       <p *ngIf="correoId.errors?.['email']">El email es incorrecto</p>
     </div>
-    <input type="password" placeholder="Contraseña" name="contrasena" #contrasenaId="ngModel" [ngClass]="{'is-invalid': (contrasenaId.dirty || contrasenaId.touched) && contrasenaId.invalid}" [(ngModel)]="contrasena" required>
+    <input type="password" placeholder="Contraseña" name="passw" #contrasenaId="ngModel" [ngClass]="{'is-invalid': (contrasenaId.dirty || contrasenaId.touched) && contrasenaId.invalid}" [(ngModel)]="contrasena" required>
     <div *ngIf="(contrasenaId.dirty || contrasenaId.touched) && contrasenaId.invalid" class="invalid-feedback">
       <p *ngIf="contrasenaId.errors?.['required']">La contraseña es obligatoria</p>
     </div>

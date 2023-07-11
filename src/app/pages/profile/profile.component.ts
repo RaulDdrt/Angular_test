@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { UserServiceService } from 'src/app/shared/user-service.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -10,9 +12,9 @@ export class ProfileComponent {
 
   public fotoperfil : string;
   public user : User;
-  constructor(){
+  constructor(public userService : UserServiceService){
     this.fotoperfil = "https://assets.stickpng.com/images/5845ca511046ab543d25238a.png"
-    this.user = new User(1,"Pedro","Diaz","pedro@gmail.com","","sss")
+    this.user = this.userService.user
 
   }
 
