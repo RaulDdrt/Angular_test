@@ -6,22 +6,16 @@
 
 </div>
 
-<div class="main-container" *ngIf="filteredBooks.length > 0; else noHay">
-
+<div class="main-container" *ngIf="filteredBooks && filteredBooks.length > 0; else noHay">
   <div class="card" *ngFor="let book of filteredBooks">
-
-    <app-cards [book]="book" (libro)="borrarLibro($event)"></app-cards>
-
+    <app-cards [book]="book" (libro)="borrarLibro(this.book.id_book)"></app-cards>
   </div>
-
 </div>
 
 <ng-template #noHay>
-
   <div class="main-container">
     <h2 class="text-danger">No hay libros</h2>
   </div>
-
 </ng-template>
 
 <!-- <aside class="aside1">

@@ -25,6 +25,12 @@ header nav a{
     text-decoration: none;
 }
 
+.header1{
+
+    color: var(--othercolor);
+    text-decoration: none;
+}
+
 img{
 
     width: 125px;

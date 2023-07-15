@@ -16,8 +16,8 @@ import { Router } from '@angular/router';
 
 export class FormLoginComponent {
 
-  public correo: string = ""
-  public contrasena : string = ""
+  public correo: string
+  public contrasena : string
   public user : User
   public formulario: FormGroup
   
@@ -29,18 +29,28 @@ export class FormLoginComponent {
       "passw": new FormControl(null, Validators.required)
     });
   }
+
+  get f(){
+    return this.formulario.controls;
+  }
   
   onSubmit() {
 
-    let correo = this.formulario.get("correo")?.value
-    let passw = this.formulario.get("passw")?.value
+    console.log("onSubmit")
 
-    this.user = new User(null!,null!,null!,correo,null!,passw)
+    const correo = this.formulario.get("correo")?.value
+    const passw = this.formulario.get("passw")?.value
+
+    console.log(correo, passw)
+    console.log(this.formulario.controls["correo"])
+    this.user = new User(999999999,"","",correo,"",passw);
     
-    this.userService.login(this.user).subscribe((data:any)=>{
-      if(data.error == false){
+    this.userService.login(this.user).subscribe((data)=>{
+      // console.log(data)
+      if(data != false){
         this.userService.logueado = true;
-        this.userService.user = data.result[0];
+        console.log(data[0]);
+        this.userService.user = data[0];
         this.router.navigateByUrl("/books")
 
       }else{
@@ -48,6 +58,7 @@ export class FormLoginComponent {
       }
     
     })
+
   }
 
 }

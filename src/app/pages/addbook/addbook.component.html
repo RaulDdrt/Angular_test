@@ -1,6 +1,6 @@
-<aside class="aside1">
+<!-- <aside class="aside1">
 
-    <form class="newcard" (submit)="nuevoLibro(title.value, type.value, author.value, +price.value, photo.value, +id.value, +id2.value)">
+    <form class="newcard" (ngSubmit)="nuevoLibro(title.value, type.value, author.value, +price.value, photo.value)">
 
       <h1>Añadir nuevo libro</h1>
 
@@ -10,11 +10,30 @@
         <input type="text" placeholder="Autor" #author>
         <input type="number" placeholder="Precio" #price>
         <input type="url" placeholder="Foto" #photo>
-        <input type="number" placeholder="Código de libro" #id>
-        <input type="number" placeholder="Código de Usuario" #id2>
+        
         <button type="submit">Enviar</button>
       </div>
 
     </form>
     
+  </aside> -->
+
+  <aside class="aside1">
+    
+    <h1>Añadir nuevo libro</h1>
+  
+    <form [formGroup]="formulario" class="newcard" (ngSubmit)="nuevoLibro(title, type, author, price, photo)">
+
+      <input type="text" placeholder="Título" formControlName="title" required>
+      <input type="text" placeholder="Estilo de tapa" formControlName="type" required>
+      <input type="text" placeholder="Autor" formControlName="author" required>
+      <input type="number" placeholder="Precio" formControlName="price" required>
+      <input type="url" placeholder="Foto" formControlName="photo" required>
+  
+      <button ng-click="nuevoLibro()">Enviar</button>
+    </form>
+    
   </aside>
+  
+  
+  

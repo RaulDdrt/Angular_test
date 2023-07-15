@@ -5,17 +5,17 @@
     <img src="https://static.vecteezy.com/system/resources/previews/009/665/381/original/white-book-pages-file-png.png">
   
     
-    <nav *ngIf="!this.userService.login; else login">
+    <nav class="header1" *ngIf="!this.userService.logueado; else login">
         <a routerLink="">Home</a>
         <a routerLink="register">Register</a>
         <a routerLink="login">Login</a>
     </nav>
 
-    <ng-template #login>
-        <a routerLink="profile">Profile</a>
-        <a routerLink="books">Books</a>
-        <a routerLink="addbook">AddBook</a>
-        <a routerLink="updatebook">UpdateBook</a>
+    <ng-template class="header1" #login>
+        <a class="header1" routerLink="profile">Profile</a>
+        <a class="header1"  routerLink="books">Books</a>
+        <a class="header1"  routerLink="addbook">AddBook</a>
+        <a class="header1"  routerLink="updatebook">UpdateBook</a>
     </ng-template>
 
-</header>
+</header>–

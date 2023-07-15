@@ -2,18 +2,19 @@
 
   <h1>LogIn</h1>
   
-  <form #userForm="ngForm" (ngSubmit)="onSubmit()" class="container">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="container">
 
-    <input type="email" email placeholder="Email" name="correo" #correoId="ngModel" [(ngModel)]="correo" [ngClass]="{'is-invalid': (correoId.dirty || correoId.touched) && correoId.invalid}" required>
-    <div *ngIf="(correoId.dirty || correoId.touched) && correoId.invalid" class="invalid-feedback">
-      <p *ngIf="correoId.errors?.['required']">El correo es obligatorio</p>
-      <p *ngIf="correoId.errors?.['email']">El email es incorrecto</p>
+    <input type="email" email placeholder="Email" name="correo" [formControlName]="'correo'" [ngClass]="{}" required>
+    <div *ngIf="f['correo'].errors" class="errors">
+      <p *ngIf="f['correo'].errors?.['required']">El correo es obligatorio</p>
+      <p *ngIf="f['correo'].errors?.['correo']">El email es incorrecto</p>
     </div>
-    <input type="password" placeholder="Contraseña" name="passw" #contrasenaId="ngModel" [ngClass]="{'is-invalid': (contrasenaId.dirty || contrasenaId.touched) && contrasenaId.invalid}" [(ngModel)]="contrasena" required>
-    <div *ngIf="(contrasenaId.dirty || contrasenaId.touched) && contrasenaId.invalid" class="invalid-feedback">
-      <p *ngIf="contrasenaId.errors?.['required']">La contraseña es obligatoria</p>
+    <input type="password" placeholder="Contraseña" name="passw" [formControlName]="'passw'" required>
+    <div *ngIf="f['passw'].errors" class="invalid-feedback">
+      <p *ngIf="f['passw'].errors">La contraseña es obligatoria</p>
     </div>
-    <button [disabled]="userForm.invalid">Enviar</button>
+    <button ng-click="onSubmit()">Enviar</button>
+
 
   </form>
   

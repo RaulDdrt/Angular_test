@@ -25,6 +25,6 @@
       <input type="password" id="passw2" formControlName="passw2" placeholder="Aqui tu contraseña" [ngClass]="{'is-invalid': (registrarse.get('passw2')?.dirty || registrarse.get('passw2')?.touched) && registrarse.get('passw2')?.invalid}">
       <div *ngIf="registrarse.get('passw2')?.invalid" class="invalid-feedback">Contraseña necesario</div>
 
-      <button type="submit" [disabled]="registrarse.invalid">Registrarse</button>
+      <button ng-click="onSubmit()">Registrarse</button>
     </form>
 </div>

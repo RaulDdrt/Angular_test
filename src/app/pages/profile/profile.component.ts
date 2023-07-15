@@ -24,8 +24,14 @@ export class ProfileComponent {
     this.user.last_name = newapellido;
     this.user.email = newemail;
     this.user.photo = newfoto
-      
-  }
 
-
+     this.userService.edit(this.user).subscribe(
+      response => {
+        console.log("Perfil actualizado exitosamente");
+      },
+      error => {
+        console.error("Error al actualizar el perfil:", error);
+      }
+    );
+}
 }

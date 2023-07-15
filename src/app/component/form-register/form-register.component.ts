@@ -50,10 +50,13 @@ export class FormRegisterComponent {
     if(passw === passw2){
       this.userService.register(this.user).subscribe((data:any)=>{
         console.log(data)
+        
       })
     }else{
       console.log("Las contraseñas deben ser iguales")
     }
+
+    this.router.navigateByUrl("/login")
   }
 
 }

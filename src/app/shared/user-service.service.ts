@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 
@@ -17,16 +17,32 @@ export class UserServiceService {
     this.logueado = false
   }
 
-  register(user:User):Observable<any>{
+register(user:User):Observable<any>{
 
     return this.http.post(this.url + "/register", user)
 
-  }
+}
 
-  login(user:User):Observable<any>{
+login(user:User):Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+  })
+    console.log("User name: ", user.email )
+    console.log("Password: ", user.password)
+    let obsevable =  this.http.post(this.url + "/login", user, {headers})
+    console.log(obsevable)
+    return obsevable
+    
 
-    return this.http.post(this.url + "/login", user)
+}
 
-  }
+edit(user: User):Observable<any>{
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+  return this.http.put(this.url + "/usuarios", user, {headers});
+}
+
+
 
 }
