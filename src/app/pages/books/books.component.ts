@@ -66,7 +66,7 @@ borrarLibro(id_book: number) {
     this.booksService.getBookByUser(this.userService.user.id_user).subscribe((data: Book[]) => {
       this.libros = data;
       this.filterBooks();
+      });
     });
-  });
-}
+  }
 }

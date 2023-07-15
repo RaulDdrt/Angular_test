@@ -33,5 +33,5 @@ export class ProfileComponent {
         console.error("Error al actualizar el perfil:", error);
       }
     );
-}
+  }
 }
