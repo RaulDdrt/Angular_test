@@ -35,6 +35,7 @@ editBook(book: Book): Observable<any> {
 
 deleteBook(id_book: number): Observable<any> {
   const params = new HttpParams().set('id_book', id_book.toString());
+  console.log(params)
   return this.http.delete(this.apiUrl, { params });
 }
 
